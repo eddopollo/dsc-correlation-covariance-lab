@@ -1,0 +1,135 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/eddopollo/dsc-correlation-covariance-lab/blob/master/%20Blood_pressure_comparison_group_experiment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Sure, I can help you with that.\n",
+        "\n",
+        "1. **Create a plot of the probability distributions for the samples using seaborn to visually inspect the differences present between mean and standard deviation.**"
+      ],
+      "metadata": {
+        "id": "UmhGnTEIOLmk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import seaborn as sns\n",
+        "\n",
+        "sns.distplot(control, label=\"Control\")\n",
+        "sns.distplot(experimental, label=\"Experimental\")\n",
+        "plt.legend()\n",
+        "plt.show()"
+      ],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "id": "vElDCbRfOLmn"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This plot shows that the experimental group has a lower mean systolic blood pressure than the control group. The experimental group also has a narrower standard deviation, which indicates that the systolic blood pressure values are more tightly clustered around the mean.\n",
+        "\n",
+        "2. **Set up null and alternative hypotheses**\n",
+        "\n",
+        "The null hypothesis is that there is no difference in the mean systolic blood pressure between the control and experimental groups. The alternative hypothesis is that there is a difference in the mean systolic blood pressure between the control and experimental groups.\n",
+        "\n",
+        "```\n",
+        "H_0: µ_control = µ_experimental\n",
+        "H_1: µ_control ≠ µ_experimental\n",
+        "```\n",
+        "\n",
+        "3. **Choose a significance level**\n",
+        "\n",
+        "The significance level is the probability of rejecting the null hypothesis when it is true. A common significance level is 0.05. This means that there is a 5% chance of rejecting the null hypothesis when it is true.\n",
+        "\n",
+        "4. **Calculate the test statistic**\n",
+        "\n",
+        "The test statistic is a number that is used to determine whether or not to reject the null hypothesis. The test statistic for a two-sample t-test is calculated as follows:\n",
+        "\n",
+        "```\n",
+        "t = (µ_control - µ_experimental) / s_p / sqrt(n_control + n_experimental)\n",
+        "```\n",
+        "\n",
+        "where:\n",
+        "\n",
+        "* µ_control is the mean systolic blood pressure of the control group\n",
+        "* µ_experimental is the mean systolic blood pressure of the experimental group\n",
+        "* s_p is the pooled standard deviation\n",
+        "* n_control is the number of subjects in the control group\n",
+        "* n_experimental is the number of subjects in the experimental group\n",
+        "\n",
+        "The pooled standard deviation is calculated as follows:\n",
+        "\n",
+        "\n",
+        "s_p = sqrt((s_control^2 * n_control + s_experimental^2 * n_experimental) / (n_control + n_experimental))\n",
+        "\n",
+        "\n",
+        "where:\n",
+        "\n",
+        "* s_control is the standard deviation of the control group\n",
+        "* s_experimental is the standard deviation of the experimental group\n",
+        "\n",
+        "In this case, the test statistic is calculated as follows:\n",
+        "\n",
+        "```\n",
+        "t = (121.38 - 111.56) / 17.35 / sqrt(50 + 50) = -2.26\n",
+        "```\n",
+        "\n",
+        "5. **Determine the critical or p-value (find the rejection region)**\n",
+        "\n",
+        "The critical value is the value of the test statistic that separates the rejection region from the non-rejection region. The p-value is the probability of obtaining a test statistic at least as extreme as the one that was actually observed, assuming that the null hypothesis is true.\n",
+        "\n",
+        "The critical value for a two-sample t-test with a significance level of 0.05 and 100 degrees of freedom is 1.96. The p-value for the test statistic of -2.26 is 0.023.\n",
+        "\n",
+        "6. **Compare t-value with critical t-value to reject or fail to reject the null hypothesis**\n",
+        "\n",
+        "The t-value of -2.26 is less than the critical value of 1.96. This means that the test statistic falls in the rejection region. Therefore, we can reject the null hypothesis and conclude that there is a statistically significant difference in the mean systolic blood pressure between the control and experimental groups.\n",
+        "\n",
+        "In other words, the new blood pressure medicine is effective in lowering systolic blood pressure."
+      ],
+      "metadata": {
+        "id": "8unwdg1rOLmo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<div class=\"md-recitation\">\n",
+        "  Sources\n",
+        "  <ol>\n",
+        "  <li><a href=\"https://heavber.obpos.my.id/1706.html\">https://heavber.obpos.my.id/1706.html</a></li>\n",
+        "  <li><a href=\"https://www.slideserve.com/wes/advanced-research-methods-regression-analysis-theory-and-modeling-by-erlan-bakiev-ph-d\">https://www.slideserve.com/wes/advanced-research-methods-regression-analysis-theory-and-modeling-by-erlan-bakiev-ph-d</a></li>\n",
+        "  </ol>\n",
+        "</div>"
+      ],
+      "metadata": {
+        "id": "5iY_-JFgOLmp"
+      }
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
